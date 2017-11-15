@@ -1,0 +1,14 @@
+[Unit]
+Description=frp server service
+Documentation=https://github.com/fatedier/frp
+After=network.target
+ConditionPathExists=/usr/local/bin/frps
+ConditionPathExists=/usr/local/bin/frps.ini
+
+[Service]
+Type=simple
+Restart=on-abort
+ExecStart=/usr/local/bin/frps -c /usr/local/bin/frps.ini
+
+[Install]
+WantedBy=multi-user.target

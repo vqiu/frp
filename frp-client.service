@@ -1,0 +1,14 @@
+[Unit]
+Description=frp client service
+Documentation=https://github.com/fatedier/frp
+After=network.target
+ConditionPathExists=/usr/local/bin/frpc
+ConditionPathExists=/usr/local/bin/frpc.ini
+
+[Service]
+Type=simple
+Restart=on-abort
+ExecStart=/usr/local/bin/frpc -c /usr/local/bin/frpc.ini
+
+[Install]
+WantedBy=multi-user.target
